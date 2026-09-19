@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DepthWizard — Global Design System
+   Scientific / geospatial analysis platform aesthetic.
+   Dark, precise, high information density.
+   ============================================================ */
+
+/* Custom design tokens via CSS variables */
+@theme {
+  --color-dw-bg:           #09101f;
+  --color-dw-surface:      #0f172a;
+  --color-dw-surface-2:    #162032;
+  --color-dw-border:       #1e3048;
+  --color-dw-border-subtle: #162030;
+
+  --color-dw-accent:       #0ea5e9;
+  --color-dw-accent-dim:   #0369a1;
+  --color-dw-success:      #10b981;
+  --color-dw-warning:      #f59e0b;
+  --color-dw-error:        #ef4444;
+  --color-dw-muted:        #475569;
+
+  --color-dw-text:         #e2e8f0;
+  --color-dw-text-sub:     #94a3b8;
+  --color-dw-text-dim:     #475569;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Base resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-dw-bg);
+  color: var(--color-dw-text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible — keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-dw-accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dw-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-dw-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dw-muted);
+}
+
+/* Mono text utility */
+.font-mono {
+  font-family: var(--font-mono);
+}

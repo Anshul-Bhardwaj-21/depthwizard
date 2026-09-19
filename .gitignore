@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+*.egg
+
+# Model artifacts / checkpoints (can be large)
+model/checkpoints/*.pt
+model/checkpoints/*.pth
+model/checkpoints/*.ckpt
+model/data/*.tif
+model/data/*.tiff
+
+# Node / frontend (frontend/ has its own .gitignore too)
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.env.local
+frontend/.env.*.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.sw?
+.DS_Store
+
+# Temporary files
+*.log
+*.tmp
+
+# OS
+Thumbs.db
