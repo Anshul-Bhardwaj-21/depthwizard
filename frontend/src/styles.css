@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  /* base */
+  --bg: #10171c;
+  --panel: #161f25;
+  --panel-raised: #1c262d;
+  --border: #2a363e;
+  --text: #e7edf0;
+  --text-dim: #8ea0a8;
+
+  /* interactive accent — cool teal, distinct from the elevation ramp below */
+  --accent: #3fa79f;
+  --accent-hover: #56c2b9;
+
+  /* elevation colour ramp: literally a low->high terrain gradient,
+     used only for data (legends, height bars, viewer terrain tint) */
+  --elev-low: #1f6f6b;
+  --elev-mid: #c98a3d;
+  --elev-high: #ede6d6;
+
+  --danger: #d9695f;
+  --radius: 6px;
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--bg);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 120ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+button:disabled {
+  background: var(--panel-raised);
+  color: var(--text-dim);
+  cursor: not-allowed;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}

@@ -1,45 +1,20 @@
-# Python
+# python
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.egg-info/
-.eggs/
-venv/
-.venv/
-env/
-*.egg
+*.pyc
+.pytest_cache/
+model/checkpoints/
+backend/job_outputs/
 
-# Model artifacts / checkpoints (can be large)
-model/checkpoints/*.pt
-model/checkpoints/*.pth
-model/checkpoints/*.ckpt
-model/data/*.tif
-model/data/*.tiff
+# node
+node_modules/
+dist/
+.vite/
 
-# Node / frontend (frontend/ has its own .gitignore too)
-frontend/node_modules/
-frontend/dist/
-frontend/dist-ssr/
-frontend/.env.local
-frontend/.env.*.local
-
-# Environment files
+# misc
 .env
-.env.local
-.env.*.local
-
-# IDE
-.vscode/*
-!.vscode/extensions.json
-.idea/
-*.suo
-*.sw?
 .DS_Store
 
-# Temporary files
-*.log
-*.tmp
-
-# OS
-Thumbs.db
+# NOTE: model/data/images, model/data/depth, and model/data/sample_geotiff
+# are deliberately NOT ignored -- they hold the shipped synthetic sample
+# dataset (see model/data/make_sample_data.py) so training works out of the
+# box. Point --data-root at a real GAMUS download to replace them.

@@ -1,0 +1,16 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9
+numpy>=1.24
+Pillow>=10.0
+-r ../model/requirements.txt
+pystac-client
+planetary-computer
+rasterio
+sqlalchemy
+scipy
+scikit-image
+matplotlib
+reportlab
+httpx
+pytest
