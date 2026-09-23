@@ -1,0 +1,20 @@
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+model/checkpoints/
+backend/job_outputs/
+
+# node
+node_modules/
+dist/
+.vite/
+
+# misc
+.env
+.DS_Store
+
+# NOTE: model/data/images, model/data/depth, and model/data/sample_geotiff
+# are deliberately NOT ignored -- they hold the shipped synthetic sample
+# dataset (see model/data/make_sample_data.py) so training works out of the
+# box. Point --data-root at a real GAMUS download to replace them.
