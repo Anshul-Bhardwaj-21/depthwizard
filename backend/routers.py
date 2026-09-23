@@ -51,6 +51,29 @@ def get_layer(job_id: str, layer: str, azimuth: float = 315.0, elevation: float 
         
     return FileResponse(out_img)
 
+@router.get("/jobs/{job_id}/heightmap")
+def get_heightmap(job_id: str, grid: int = 64):
+    """Return height data as a downsampled JSON grid for the 3D terrain viewer."""
+    job_dir = OUTPUTS_DIR / job_id
+    height_path = job_dir / "height.npy"
+    if not height_path.exists():
+        raise HTTPException(404, "No height data found for this job")
+
+    h = np.load(height_path).astype(np.float32)
+    # Downsample to grid×grid using PIL for speed
+    from PIL import Image as _Image
+    img = _Image.fromarray(h).resize((grid, grid), _Image.BILINEAR)
+    grid_data = np.array(img, dtype=np.float32)
+
+    return JSONResponse({
+        "grid": grid_data.tolist(),
+        "rows": grid,
+        "cols": grid,
+        "min": float(grid_data.min()),
+        "max": float(grid_data.max()),
+        "mean": float(grid_data.mean()),
+    })
+
 @router.get("/jobs/{job_id}/contours")
 def get_contours(job_id: str, interval: float = 10.0):
     job_dir = OUTPUTS_DIR / job_id
