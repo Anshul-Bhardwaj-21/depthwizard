@@ -42,16 +42,19 @@ export default function ProcessingPage({ jobId }) {
                 const s = await api.getJobStatus(jobId);
                 setStatus(s);
                 if (s.status === 'done') {
-                    addLog('✓ Analysis complete!', 'success');
+                    addLog('✓ Analysis complete! Redirecting to results…', 'success');
                     clearInterval(pollRef.current);
+                    // Auto-navigate to results after short delay
+                    setTimeout(() => navigate('/results'), 1500);
                 } else if (s.status === 'failed') {
-                    addLog('✗ Analysis failed.', 'error');
+                    addLog('✗ Analysis failed. Check the logs.', 'error');
                     clearInterval(pollRef.current);
                 } else {
-                    addLog(`Stage: ${s.status}...`, 'processing');
+                    addLog(`Stage: ${s.status}…`, 'processing');
                 }
             } catch (e) { addLog(`Error polling: ${e.message}`); }
         };
+
 
         poll();
         pollRef.current = setInterval(poll, 2000);

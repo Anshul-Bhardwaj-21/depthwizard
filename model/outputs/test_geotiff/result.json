@@ -1,0 +1,16 @@
+{
+  "input": "data/sample_geotiff/scene.tif",
+  "mode": "absolute",
+  "georeferenced": true,
+  "bounds_wgs84": [
+    76.76,
+    30.74,
+    76.772,
+    30.752
+  ],
+  "calibration": {
+    "scale": 4.813931465148926,
+    "offset": 237.2513427734375,
+    "inlier_fraction": 0.865509033203125
+  }
+}
